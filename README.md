@@ -1,5 +1,7 @@
 # Week 6. State Drift & 기존 import (classic) `[대면]`
 
+> 📘 **[이번 주 강의자료(핸즈온 워크북) PDF »](./lecture/강의자료.pdf)** — 실습은 이 문서를 위에서 아래로 따라가며 진행합니다.
+
 > 이번 주가 끝나면: **콘솔 수동 변경을 `plan`으로 감지(Drift)하고, 코드 밖 리소스를 `terraform import`로 편입할 수 있다.**
 
 ## 0. 메타 정보
