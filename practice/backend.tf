@@ -10,7 +10,7 @@
 # 코드 · state · 실물 셋이 각각 어디에 있는지는 개념워크북 Part 1 에 있습니다.
 #
 # 여기에 var.project_name 을 쓸 수 없습니다. backend 블록 안에서는 변수 참조 자체가
-# 허용되지 않습니다. week4 개념워크북 16번. 그래서 버킷 이름을 손으로 적습니다.
+# 허용되지 않습니다. week4 개념워크북 16번. 그래서 버킷 이름을 직접 적습니다.
 #
 # TODO(A-2) ①: bucket 과 dynamodb_table 의 CHANGE-ME 를 본인 week3 값으로 바꾸세요.
 #   week3 리포의 practice/bootstrap 에서 아래를 실행하면 다섯 줄이 그대로 나옵니다.

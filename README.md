@@ -1,9 +1,9 @@
 # Week 6. State Drift & 고전 terraform import `[대면]`
 
 > 📘 **[개념 워크북 »](./lecture/개념워크북.md)** · **[실습 워크북 »](./lecture/실습워크북.md)**
-> 개념 워크북은 예습용입니다. 실습은 실습 워크북을 위에서 아래로 따라가며 진행합니다.
+> 개념 워크북은 사전 학습용입니다. 실습은 실습 워크북을 위에서 아래로 따라가며 진행합니다.
 
-> 이번 주가 끝나면 코드·state·실물 셋이 어긋난 상태를 `plan`으로 감지하고, 콘솔에서 만든 리소스를 `terraform import`로 state에 편입할 수 있습니다.
+> 이번 주가 끝나면 코드·state·실물 셋이 어긋난 상태를 `plan`으로 감지하고, 콘솔에서 생성한 리소스를 `terraform import`로 state에 편입할 수 있습니다.
 
 ## 0. 메타 정보
 | 항목 | 내용 |
@@ -28,14 +28,14 @@
 |------|------|------|
 | 0~10분 | 회고 | 랜덤 지목 |
 | 10~15분 | 과제③ 리뷰 | 대표 PR 공유 |
-| 15~58분 | 실습 45분 | Block A 드리프트 18분 · Block B 고전 import 20분 · Block C 정리 7분. 개념 설명은 따로 떼지 않고 Block A 워크스루 안에서 함께 짚습니다 |
+| 15~58분 | 실습 45분 | Block A 드리프트 18분 · Block B 고전 import 20분 · Block C 정리 7분. 개념 설명은 따로 떼지 않고 Block A 워크스루 안에서 함께 설명합니다 |
 | 58~60분 | 마무리 | 7주차 예고 |
 
 ## 4. 실습 개요: 폴더 구조
 ```
 practice/
  ├─ main.tf         # TODO ② 드리프트 실습용 aws_s3_bucket.drift_demo
- │                  # TODO ③ 고전 import 대상 aws_s3_bucket.manual (빈 껍데기)
+ │                  # TODO ③ 고전 import 대상 aws_s3_bucket.manual (빈 리소스 블록)
  │                  # TODO ④ 부속 리소스 versioning · public_access_block
  ├─ variables.tf
  ├─ outputs.tf      # TODO ⑤
@@ -43,7 +43,7 @@ practice/
  ├─ versions.tf
  └─ backend.tf      # TODO ① key = week06/app/terraform.tfstate. 버킷·잠금 테이블은 week3 것을 그대로 씁니다
 ```
-실습 리소스는 S3 버킷 두 개뿐입니다. `{project_name}-drift`는 코드로 만들고, `{project_name}-manual`은 콘솔에서 손으로 만든 뒤 import로 편입합니다. 이번 주에는 EC2를 만들지 않고, 모듈도 쓰지 않습니다.
+실습 리소스는 S3 버킷 두 개뿐입니다. `{project_name}-drift`는 코드로 만들고, `{project_name}-manual`은 콘솔에서 직접 만든 뒤 import로 편입합니다. 이번 주에는 EC2를 만들지 않고, 모듈도 쓰지 않습니다.
 
 ```bash
 cd practice
@@ -63,7 +63,7 @@ terraform apply                      # 실물을 코드에 맞춥니다 -> No ch
 
 # Block B. 콘솔이 먼저 만들어 놓습니다
 #   콘솔에서 "{project_name}-manual" 버킷 생성 (버전 관리 Enable, 태그 없음)
-#   TODO ③ aws_s3_bucket.manual 빈 껍데기 작성
+#   TODO ③ aws_s3_bucket.manual 빈 리소스 블록 작성
 terraform import aws_s3_bucket.manual {project_name}-manual
 terraform plan                       # No changes.  <- 그런데 버전 관리는 코드 어디에도 없습니다
 #   TODO ④ 부속 리소스 두 개 작성

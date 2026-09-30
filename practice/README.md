@@ -9,7 +9,7 @@
 |------|------|------|------|
 | ① | `backend.tf` | A-2 | `CHANGE-ME` 두 곳을 week3 버킷과 테이블 이름으로 |
 | ② | `main.tf` | A-3 | `aws_s3_bucket.drift_demo` |
-| ③ | `main.tf` | B-2 | `aws_s3_bucket.manual` 빈 껍데기 |
+| ③ | `main.tf` | B-2 | `aws_s3_bucket.manual` 빈 리소스 블록 |
 | ④ | `main.tf` | B-4 | `aws_s3_bucket_versioning.manual` · `aws_s3_bucket_public_access_block.manual` |
 | ⑤ | `outputs.tf` | B-6 | `manual_bucket` output |
 
