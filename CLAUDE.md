@@ -192,9 +192,7 @@ BOAZ 테라폼 스터디 강의자료(`lecture/개념워크북.md`, `lecture/실
 
 ---
 
-> `lecture/build-pdf.sh` 와 `lecture/style.css` 가 리포에 있습니다. `.md` 를 고쳤으면 리포 루트에서 `./lecture/build-pdf.sh` 를 돌려 PDF 를 다시 뽑으세요. 인자 없이 돌리면 `lecture/*.md` 두 편을 모두 처리합니다. 하나만 뽑으려면 `./lecture/build-pdf.sh 개념워크북` 처럼 이름을 줍니다.
->
-> `style.css` 는 week4 에서 그대로 가져온 것이 아닙니다. week4 의 파일에는 `table` · `pre` · `.alert` 에 `break-inside: avoid-page` 가 걸려 있어서 이 절의 규칙 1과 어긋났습니다. week5 의 `style.css` 는 그것을 빼고 `thead { display: table-header-group }` 과 `tbody tr { break-inside: avoid }` 로 대신하며, 한글 모노스페이스 폭은 `MonoKR` `@font-face` 의 `size-adjust: 120.4%` 로 맞춥니다.
+> PDF 빌드 도구는 [workbook-pdf](https://github.com/BOAZ-terraform-26-study/workbook-pdf) 레포로 옮겼습니다. `.md` 를 고쳤으면 그 레포를 받아 `./workbook-pdf/build-pdf.sh lecture` 를 돌려 PDF 를 다시 뽑으세요. 하나만 뽑으려면 `./workbook-pdf/build-pdf.sh lecture/개념워크북.md` 처럼 파일을 줍니다.
 
 ---
 
